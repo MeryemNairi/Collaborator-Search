@@ -1,0 +1,40 @@
+@import '~@fluentui/react/dist/sass/References.scss';
+
+.directory {
+  .dropDownSortBy {
+    margin-bottom: 15px;
+  }
+
+  .searchBox {
+    width: "100%";
+    vertical-align: "middle";
+    margin-bottom: 25;
+  }
+
+
+  .searchTextBox {
+      min-width: 180px;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 25px;
+  }
+
+  
+  .userList {
+    margin-top: 10px; /* Espacement entre la barre de recherche et la liste */
+    padding: 0;
+    list-style-type: none;
+  }
+  
+  .userListItem {
+    border: 1px solid #ccc; /* Bordure autour de chaque élément de la liste */
+    padding: 10px; /* Espacement à l'intérieur de chaque élément de la liste */
+    width: 100%; /* Largeur égale à celle de la barre de recherche */
+    box-sizing: border-box; /* La largeur inclut la bordure */
+  }
+  
+  
+  
+
+}
