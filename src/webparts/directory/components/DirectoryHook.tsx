@@ -248,44 +248,51 @@ const DirectoryHook: React.FC<IDirectoryProps> = (props) => {
   return (
     <div className={styles.directory}>
       {/* Barre de recherche */}
-      <div className={styles.searchBox}>
-        <SearchBox 
-          placeholder={strings.SearchPlaceHolder} 
-          className={styles.searchTextBox}
-          onSearch={_searchUsers}
-          value={state.searchText}
-          onChange={(ev,newVal) => _searchBoxChanged(newVal)} 
-        />
+      <div className={styles.header}>
+        <div className={styles.serchWrap}>
+          <SearchBox
+            placeholder={strings.SearchPlaceHolder}
+            className={styles.searchTextBox}
+            onSearch={_searchUsers}
+            value={state.searchText}
+            onChange={(ev, newVal) => _searchBoxChanged(newVal)}
+          />
+          {state.searchText.length > 0 && pagedItems.length > 0 && (
+            <div id="auto-suggest" >
+              <ul className={styles.suggestions}>
+                {pagedItems.map((user, index) => (
+                  <li key={index} className={styles.suggestion}>
+                    {/* Afficher les détails de l'utilisateur ici */}
+                    <PersonaCard
+                      context={props.context}
+                      key={"PersonaCard" + index}
+                      profileProperties={{
+                        DisplayName: user.PreferredName,
+                        Title: user.JobTitle,
+                        PictureUrl: user.PictureURL,
+                        Email: user.WorkEmail,
+                        Department: user.Department,
+                        WorkPhone: user.WorkPhone,
+                        Location: user.OfficeNumber
+                          ? user.OfficeNumber
+                          : user.BaseOfficeLocation
+                      }}
+                    />
+                  </li>
+                ))}
+              </ul>
+
+            </div>
+          )}
+        </div>
       </div>
-      
+
       {/* Liste des résultats */}
-      {state.searchText.length > 0 && pagedItems.length > 0 && (
-        <ul className={styles.userList}>
-          {pagedItems.map((user, index) => (
-            <li key={index} className={styles.userListItem}>
-              {/* Afficher les détails de l'utilisateur ici */}
-              <PersonaCard
-                context={props.context}
-                key={"PersonaCard" + index}
-                profileProperties={{
-                  DisplayName: user.PreferredName,
-                  Title: user.JobTitle,
-                  PictureUrl: user.PictureURL,
-                  Email: user.WorkEmail,
-                  Department: user.Department,
-                  WorkPhone: user.WorkPhone,
-                  Location: user.OfficeNumber
-                    ? user.OfficeNumber
-                    : user.BaseOfficeLocation
-                }}
-              />
-            </li>
-          ))}
-        </ul>
-      )}
+
     </div>
   );
-  
+
+
 
 
 };

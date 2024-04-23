@@ -1,37 +1,48 @@
-@import '~@fluentui/react/dist/sass/References.scss';
-
+/* Style pour le conteneur de la carte de personne */
 .personaContainer {
-  display: inline-block;
-  margin-top: 15px;
-  margin-right: 15px;
-  min-width: 300px;
-  max-width: 300px;
-  vertical-align: top;
+  display: flex; /* Utilisation de flexbox pour organiser les éléments en ligne */
+  align-items: center; /* Centrer les éléments verticalement */
+  margin-top: 15px; /* Marge supérieure de 15 pixels */
+  margin-right: 15px; /* Marge droite de 15 pixels */
+  width: 100%; /* Occupant tout l'espace disponible */
 }
+
+/* Style pour la carte de document */
 .documentCard {
-  border-color: $ms-color-themeDark;
-  border-top-width: 5px;
-  width: 100%;
-  max-width: 350px;
-  height: 120px;
+  display: flex; /* Utilisation de flexbox pour organiser les éléments en ligne */
+  align-items: center; /* Centrer les éléments verticalement */
+  border-top-width: 0; /* Supprimer la bordure supérieure */
+  width: calc(100% - 3px); /* Occupant tout l'espace disponible moins la marge de la suggestion */
+  max-width: none; /* Aucune limite de largeur maximale */
+  height: auto; /* Hauteur automatique */
+  background-color: transparent; /* Fond transparent */
 }
+
+/* Style pour l'élément de personne */
 .persona {
-  padding: 15px;
+  display: flex; /* Utilisation de flexbox pour organiser les éléments en ligne */
+  align-items: center; /* Centrer les éléments verticalement */
+  padding: 15px; /* Remplissage intérieur de 15 pixels */
+  width: 100%; /* Occupant tout l'espace disponible */
 }
 
+/* Style pour l'image de la personne */
+.persona .ms-Persona-imageArea {
+  margin-right: 15px; /* Marge à droite de l'image */
+  flex: 0 0 auto; /* La taille de l'image ne change pas */
+}
+
+/* Style pour le texte de la personne */
+.persona .ms-Persona-details {
+  flex: 1 1 auto; /* Le texte s'étire pour remplir l'espace disponible */
+}
+
+/* Style pour l'élément bottomColor */
 .bottomColor {
-  background-color: $ms-color-themeDark;
-  height: 5px;
-  margin-top: 10;
-  width: 100%;
+  display: none; /* Masquer l'élément bottomColor */
 }
 
+/* Style pour l'élément textOverflow */
 .textOverflow {
-    word-break: break-all;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: normal;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
+  display: none; /* Masquer l'élément textOverflow */
 }
