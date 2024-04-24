@@ -6,13 +6,11 @@ import { spservices } from "../../../SPServices/spservices";
 import { IDirectoryState } from "./IDirectoryState";
 import * as strings from "DirectoryWebPartStrings";
 import {
-  Spinner, SpinnerSize, MessageBar, MessageBarType, SearchBox, Icon, Label,
-  Pivot, PivotItem, PivotLinkFormat, PivotLinkSize, Dropdown, IDropdownOption
-} from "office-ui-fabric-react";
-import { Stack, IStackTokens } from 'office-ui-fabric-react/lib/Stack';
+   SearchBox, PivotItem, IDropdownOption} from "office-ui-fabric-react";
+import {IStackTokens } from 'office-ui-fabric-react/lib/Stack';
 import { debounce } from "throttle-debounce";
-import { WebPartTitle } from "@pnp/spfx-controls-react";
 import { ISPServices } from "../../../SPServices/ISPServices";
+
 
 const LogoSVG = (
   <svg width="42" height="38" viewBox="0 0 42 38" fill="none" xmlns="http://www.w3.org/2000/svg">
