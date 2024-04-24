@@ -16,7 +16,8 @@ import { ISPServices } from "../../../SPServices/ISPServices";
 
 
 import { IDirectoryProps } from './IDirectoryProps';
-import Paging from './Pagination/Paging';
+//import Paging from './Pagination/Paging';
+import Navbar from './Navbar/Navbar';
 
 
 const wrapStackTokens: IStackTokens = { childrenGap: 30 };
@@ -245,8 +246,14 @@ const DirectoryHook: React.FC<IDirectoryProps> = (props) => {
     _searchByAlphabets(true);
   }, [props]);
 
+  const handleSearchBoxChanged = (newvalue: string): void => {
+    setCurrentPage(1);
+    _debouncesearchUsers(newvalue);
+  };
+
   return (
     <div className={styles.directory}>
+      
       {/* Barre de recherche */}
       <div className={styles.header}>
         <div className={styles.serchWrap}>
@@ -255,7 +262,7 @@ const DirectoryHook: React.FC<IDirectoryProps> = (props) => {
             className={styles.searchTextBox}
             onSearch={_searchUsers}
             value={state.searchText}
-            onChange={(ev, newVal) => _searchBoxChanged(newVal)}
+            onChange={(ev, newVal) => handleSearchBoxChanged(newVal)}
           />
           {state.searchText.length > 0 && pagedItems.length > 0 && (
             <div id="auto-suggest" >
@@ -287,7 +294,10 @@ const DirectoryHook: React.FC<IDirectoryProps> = (props) => {
         </div>
       </div>
 
-      {/* Liste des résultats */}
+       {/* Barre de navigation */}
+       <Navbar /> {/* Ajoutez le composant Navbar ici */}
+
+
 
     </div>
   );
