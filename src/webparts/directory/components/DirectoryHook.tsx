@@ -14,6 +14,13 @@ import { debounce } from "throttle-debounce";
 import { WebPartTitle } from "@pnp/spfx-controls-react";
 import { ISPServices } from "../../../SPServices/ISPServices";
 
+const LogoSVG = (
+  <svg width="42" height="38" viewBox="0 0 42 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 14.3725L16.0031 0H34.002C38.4186 0 42 3.24086 42 7.23749V23.5186L25.997 38V18.8559C25.997 16.3644 23.7603 14.3533 21.0071 14.3661H0.00708477L0 14.3725Z" fill="white" />
+  </svg>
+);
+
+
 
 import { IDirectoryProps } from './IDirectoryProps';
 //import Paging from './Pagination/Paging';
@@ -253,7 +260,7 @@ const DirectoryHook: React.FC<IDirectoryProps> = (props) => {
 
   return (
     <div className={styles.directory}>
-      
+
       {/* Barre de recherche */}
       <div className={styles.header}>
         <div className={styles.serchWrap}>
@@ -264,6 +271,8 @@ const DirectoryHook: React.FC<IDirectoryProps> = (props) => {
             value={state.searchText}
             onChange={(ev, newVal) => handleSearchBoxChanged(newVal)}
           />
+          {/* Ajoutez le logo SVG à droite de la barre de recherche */}
+          <div className={styles.logo}>{LogoSVG}</div>
           {state.searchText.length > 0 && pagedItems.length > 0 && (
             <div id="auto-suggest" >
               <ul className={styles.suggestions}>
@@ -293,12 +302,9 @@ const DirectoryHook: React.FC<IDirectoryProps> = (props) => {
           )}
         </div>
       </div>
-
-       {/* Barre de navigation */}
-       <Navbar /> {/* Ajoutez le composant Navbar ici */}
-
-
-
+      <div>
+        <Navbar /> {/* Ajoutez le composant Navbar ici */}
+      </div>
     </div>
   );
 
